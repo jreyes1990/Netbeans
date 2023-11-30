@@ -3,6 +3,7 @@ package primitivos;
 public class Primitivos {
 
   public static void main(String[] args) {
+    System.out.println("********** PRIMITIVOS NUMERICOS ENTEROS **********");
     System.out.println("********** BYTE **********");
     byte numeroByte = 7;
     System.out.println("numero byte: "+numeroByte);
@@ -34,13 +35,5 @@ public class Primitivos {
     System.out.println("tipo long corresponde en bites a "+Long.SIZE);
     System.out.println("Valor minimo de un long "+Long.MIN_VALUE);
     System.out.println("Valor maximo de un long "+Long.MAX_VALUE);
-    
-    System.out.println("\n********** FLOAT **********");
-    float numeroFloat = 21474836489F;
-    System.out.println("numero float: "+numeroFloat);
-    System.out.println("tipo float corresponde en byte a "+Float.BYTES);
-    System.out.println("tipo float corresponde en bites a "+Float.SIZE);
-    System.out.println("Valor minimo de un float "+Float.MIN_VALUE);
-    System.out.println("Valor maximo de un float "+Float.MAX_VALUE);
   }  
 }
