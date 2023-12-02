@@ -1,5 +1,7 @@
 package primitivos;
 
+import javax.swing.JOptionPane;
+
 public class SistemasNumericos {
 
   public static void main(String[] args) {
@@ -22,5 +24,23 @@ public class SistemasNumericos {
     System.out.println("numero hexadecimal de "+numeroDecimal+" = "+Integer.toHexString(numeroDecimal));
     int numeroHex = 0X1F4;
     System.out.println("numeroHexadecimal = "+numeroHex);
+    
+    System.out.println("\n\n********** SISTEMAS NUMERICOS - ENTRADA DE DATOS **********");
+    String inputNumeroDecimal = JOptionPane.showInputDialog(null, "Ingrese un numero entero: ");
+    
+    try {
+      int parseNumeroDecimal = Integer.parseInt(inputNumeroDecimal);
+      String mensaje = "";
+      mensaje += "numero binario de "+parseNumeroDecimal+" = "+Integer.toBinaryString(parseNumeroDecimal);
+      mensaje += "\nnumero octal de "+parseNumeroDecimal+" = "+Integer.toOctalString(parseNumeroDecimal);
+      mensaje += "\nnumero hexadecimal de "+parseNumeroDecimal+" = "+Integer.toHexString(parseNumeroDecimal);
+      JOptionPane.showMessageDialog(null, mensaje);
+      System.out.println(mensaje);
+    } catch (NumberFormatException e) {
+      System.out.println("ERROR: "+e);
+      JOptionPane.showMessageDialog(null, "Error: Debe ingresar un numero entero");
+      main(args);
+      System.exit(0);
+    }
   }  
 }
