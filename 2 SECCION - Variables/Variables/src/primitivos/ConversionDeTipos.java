@@ -39,5 +39,21 @@ public class ConversionDeTipos {
     
     otroDoubleStr = String.valueOf(otroNumeroDouble);
     System.out.println("otroDoubleStr = "+otroDoubleStr);
+    
+    System.out.println("********** CONVERSION DE TIPOS - ENTRE **********");
+    
+    System.out.println("\n********** Int a (Short | Long) **********");
+    int i = 10000;
+    short s = (short) i; // Casteando los valores
+    System.out.println("S = "+ s);
+    
+    long l = i;
+    System.out.println("L = "+ l);
+    
+    char b = (char) i;
+    System.out.println("B = "+ b);
+    
+    float f = (float) i;
+    System.out.println("F = "+ f);
   }  
 }
