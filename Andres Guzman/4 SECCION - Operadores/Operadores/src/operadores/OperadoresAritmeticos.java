@@ -2,7 +2,7 @@ package operadores;
 
 import javax.swing.JOptionPane;
 
-public class Operadores {
+public class OperadoresAritmeticos {
 
   public static void main(String[] args) {
     System.out.println("********** OPERADORES ARITMETICOS **********");
