@@ -2,13 +2,22 @@ package operadores;
 
 import java.util.Scanner;
 
-public class OperadoresLogicosLogin {
+public class OperadoresLogicosLoginArreglos {
 
   public static void main(String[] args) {
-    String username = "jreyes";
-    String password = "123456";
-    String username2 = "admin";
-    String password2 = "123456";
+    /*
+    String[] usernames = new String[3];
+    String[] passwords = new String[3];
+    usernames[0] = "jreyes";
+    passwords[0] = "123456";
+    usernames[1] = "admin";
+    passwords[1] = "123456";
+    usernames[2] = "pepe";
+    passwords[2] = "123456";
+    */
+    String[] usernames = {"jreyes", "admin", "pepe"};
+    String[] passwords = {"123456", "123456", "123456"};
+    
     boolean esAutenticado = false;
     
     Scanner scanner = new Scanner(System.in);
@@ -19,19 +28,17 @@ public class OperadoresLogicosLogin {
     System.out.println("Ingrese el password");
     String p = scanner.next();
     
-    if ((username.equals(u) && password.equals(p)) || (username2.equals(u) && password2.equals(p))) {
-      esAutenticado = true;
-    } else if ((!username.equals(u) && password.equals(p)) || (!username2.equals(u) && password2.equals(p))) {
-      System.out.println("Username incorrecto!");
-    } else if ((username.equals(u) && !password.equals(p)) || (username2.equals(u) && !password2.equals(p))) {
-      System.out.println("Password incorrecto!");
-    } else {
-      System.out.println("Username o Password incorrectos!");
+    for (int i = 0; i < usernames.length; i++) {
+      if (usernames[i].equals(u) && passwords[i].equals(p)) {
+        esAutenticado = true;
+        break;
+      }
     }
     
     if (esAutenticado) {
       System.out.println("Bienvenido usuario ".concat(u).concat("!"));
     }else {
+      System.out.println("Username o Password incorrectos!");
       System.out.println("Lo siento,requiere autenticacion");
     }
   }  
