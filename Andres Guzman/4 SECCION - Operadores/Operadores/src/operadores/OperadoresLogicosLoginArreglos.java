@@ -29,6 +29,14 @@ public class OperadoresLogicosLoginArreglos {
     String p = scanner.next();
     
     for (int i = 0; i < usernames.length; i++) {
+      esAutenticado = (usernames[i].equals(u) && passwords[i].equals(p)) ? true: esAutenticado;
+    }
+    
+    String mensaje = esAutenticado ? "Bienvenido usuario ".concat(u).concat("!") : "Username o Password incorrectos!\nLo siento,requiere autenticacion";
+    System.out.println(mensaje);
+    
+    /*
+    for (int i = 0; i < usernames.length; i++) {
       if (usernames[i].equals(u) && passwords[i].equals(p)) {
         esAutenticado = true;
         break;
@@ -41,5 +49,6 @@ public class OperadoresLogicosLoginArreglos {
       System.out.println("Username o Password incorrectos!");
       System.out.println("Lo siento,requiere autenticacion");
     }
+    */
   }  
 }
