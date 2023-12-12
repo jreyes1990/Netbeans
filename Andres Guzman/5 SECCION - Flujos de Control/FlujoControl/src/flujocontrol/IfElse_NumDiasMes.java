@@ -1,11 +1,20 @@
 package flujocontrol;
 
+import java.util.Scanner;
+
 public class IfElse_NumDiasMes {
 
   public static void main(String[] args) {
-    int mes = 2;
+    int mes;
     int numeroDias = 0;
-    int anio = 2024;
+    int anio;
+    
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Ingrese el numero del mes 1-12");
+    mes = scanner.nextInt();
+    
+    System.out.println("Ingrese el anio (YYYY)");
+    anio = scanner.nextInt();
     
     if (mes== 1 || mes==3 || mes==5 || mes==7 || mes==8 || mes ==10 || mes==12) {
       numeroDias = 31;
