@@ -16,5 +16,8 @@ public class WrapperBoolean {
     System.out.println("objBoolean2 = "+objBoolean2);
     System.out.println("comparando dos objetos boolean: "+(objBoolean == objBoolean2));
     System.out.println("comparando dos objetos boolean: "+(objBoolean.equals(objBoolean2)));
+    
+    boolean primBoolean2 = objBoolean2.booleanValue();
+    System.out.println("primBoolean2 = "+primBoolean2);
   }  
 }
