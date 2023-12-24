@@ -16,7 +16,7 @@ public class EjemploCalendar {
     
     // calendario.set(Calendar.HOUR_OF_DAY, 21);
     calendario.set(Calendar.HOUR, 7);
-    calendario.set(Calendar.AM_PM, Calendar.AM);
+    calendario.set(Calendar.AM_PM, Calendar.PM);
     calendario.set(Calendar.MINUTE, 20);
     calendario.set(Calendar.SECOND, 10);
     calendario.set(Calendar.MILLISECOND, 125);
@@ -24,7 +24,7 @@ public class EjemploCalendar {
     Date fechaSinFormato = calendario.getTime();
     System.out.println("fechaSinFormato = "+fechaSinFormato);
     
-    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS a");
+    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss:SSS a");
     String fechaConFormato = formato.format(fechaSinFormato);
     System.out.println("fechaConFormato = "+fechaConFormato);
   }  
