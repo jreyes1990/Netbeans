@@ -16,6 +16,25 @@ public class EjemploDatePase {
       Date fecha = format.parse(s.next());
       System.out.println("fecha ="+fecha);
       System.out.println("format = "+format.format(fecha));
+      
+      Date fecha2 = new Date();
+      
+      if (fecha.after(fecha2)) {
+        System.out.println("fecha1 (del usuario) es despues que fecha2 (actual)");
+      } else if (fecha.before(fecha2)) {
+        System.out.println("fecha1 es anterior que fecha2");
+      } else if (fecha.equals(fecha2)) {
+        System.out.println("fecha1 es igual a fecha2");
+      }
+      
+      if (fecha.compareTo(fecha2) > 0) {
+        System.out.println("fecha1 (del usuario) es despues que fecha2 (actual)");
+      } else if (fecha.compareTo(fecha2) < 0) {
+        System.out.println("fecha1 es anterior que fecha2");
+      } else if (fecha.compareTo(fecha2) == 0) {
+        System.out.println("fecha1 es igual a fecha2");
+      }
+      
     } catch (ParseException e) {
       e.printStackTrace();
     }
