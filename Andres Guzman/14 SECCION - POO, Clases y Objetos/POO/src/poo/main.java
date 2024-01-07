@@ -3,16 +3,12 @@ package poo;
 public class main {
 
   public static void main(String[] args) {
-    Automovil auto = new Automovil();
-    Automovil mazda = new Automovil();
+    Automovil auto = new Automovil("Subaru", "Impreza");
+    Automovil mazda = new Automovil("Mazda", "BT-50");
     
-    auto.setFabricante("Subaru");
-    auto.setModelo("Impreza");
     auto.setColor("Blanco");
     auto.setCilindrada(2.0);
     
-    mazda.setFabricante("Mazda");
-    mazda.setModelo("BT-50");
     mazda.setColor("Rojo");
     mazda.setCilindrada(3.0);
     

@@ -6,6 +6,15 @@ public class Automovil {
   private String color;
   private double cilindrada;
   private int capacidadEstanque = 40;
+
+  // Generando el contructor de Automovil
+  public Automovil() {
+  }
+
+  public Automovil(String fabricante, String modelo) {
+    this.fabricante = fabricante;
+    this.modelo = modelo;
+  }
   
   public String verDetalle(){
     StringBuilder sb = new StringBuilder();
@@ -41,6 +50,7 @@ public class Automovil {
     return km/(capacidadEstanque*(porcentajeBencina/100f));
   }
 
+  // Generando los getters y setters de los atributos private
   public String getFabricante() {
     return fabricante;
   }
