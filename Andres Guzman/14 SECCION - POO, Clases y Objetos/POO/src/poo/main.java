@@ -7,6 +7,7 @@ public class main {
     Automovil mazda = new Automovil("Mazda", "BT-50", "Rojo", 3.0);
     Automovil nissan = new Automovil("Nissan", "Navara", "Gris Oscuro", 3.5, 50);
     Automovil nissan2 = new Automovil("Nissan", "Navara", "Gris Oscuro", 3.5, 50);
+    Automovil auto2 = new Automovil();
     
     auto.setColor("Blanco");
     auto.setCilindrada(2.0);
@@ -26,5 +27,6 @@ public class main {
     System.out.println();
     System.out.println("Son iguales? "+(nissan == nissan2));
     System.out.println("Son iguales con equals? "+(nissan.equals(nissan2)));
+    System.out.println("Son iguales (auto2 y nissan)? "+(auto2.equals(nissan2)));
   }  
 }
