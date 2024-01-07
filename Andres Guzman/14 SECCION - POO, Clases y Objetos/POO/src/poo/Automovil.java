@@ -7,7 +7,7 @@ public class Automovil {
   private double cilindrada;
   private int capacidadEstanque = 40;
 
-  // Generando el contructor de Automovil
+  // Generando contructores de Automovil
   public Automovil() {
   }
 
@@ -15,6 +15,22 @@ public class Automovil {
     this.fabricante = fabricante;
     this.modelo = modelo;
   }
+
+  public Automovil(String fabricante, String modelo, String color) {
+    this(fabricante, modelo);
+    this.color = color;
+  }
+
+  public Automovil(String fabricante, String modelo, String color, double cilindrada) {
+    this(fabricante, modelo, color);
+    this.cilindrada = cilindrada;
+  }
+  
+  public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadEstanque) {
+    this(fabricante, modelo, color, cilindrada);
+    this.capacidadEstanque = capacidadEstanque;
+  }
+  
   
   public String verDetalle(){
     StringBuilder sb = new StringBuilder();

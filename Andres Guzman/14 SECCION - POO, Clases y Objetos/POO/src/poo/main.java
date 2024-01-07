@@ -4,13 +4,12 @@ public class main {
 
   public static void main(String[] args) {
     Automovil auto = new Automovil("Subaru", "Impreza");
-    Automovil mazda = new Automovil("Mazda", "BT-50");
+    Automovil mazda = new Automovil("Mazda", "BT-50", "Rojo", 3.0);
+    Automovil nissan = new Automovil("Nissan", "Navara", "Gris Oscuro", 3.5, 50);
     
     auto.setColor("Blanco");
     auto.setCilindrada(2.0);
     
-    mazda.setColor("Rojo");
-    mazda.setCilindrada(3.0);
     
     System.out.println(auto.verDetalle());
     System.out.println(auto.acelerar(3000));
@@ -20,5 +19,8 @@ public class main {
     System.out.println(mazda.verDetalle());
     System.out.println(mazda.acelerarFrenar(8000));
     System.out.println("Kilometros por litro "+mazda.calcularConsumo(400, 55));
+    System.out.println();
+    System.out.println(nissan.verDetalle());
+    System.out.println("Kilometros por litro "+nissan.calcularConsumo(300, 60));
   }  
 }
