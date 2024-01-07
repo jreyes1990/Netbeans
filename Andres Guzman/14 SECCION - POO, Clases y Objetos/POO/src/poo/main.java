@@ -6,15 +6,15 @@ public class main {
     Automovil auto = new Automovil();
     Automovil mazda = new Automovil();
     
-    auto.fabricante = "Subaru";
-    auto.modelo = "Impreza";
-    auto.color = "Blanco";
-    auto.cilindrada = 2.0;
+    auto.setFabricante("Subaru");
+    auto.setModelo("Impreza");
+    auto.setColor("Blanco");
+    auto.setCilindrada(2.0);
     
-    mazda.fabricante = "Mazda";
-    mazda.modelo = "BT-50";
-    mazda.color = "Rojo";
-    mazda.cilindrada = 3.0;
+    mazda.setFabricante("Mazda");
+    mazda.setModelo("BT-50");
+    mazda.setColor("Rojo");
+    mazda.setCilindrada(3.0);
     
     System.out.println(auto.verDetalle());
     System.out.println(auto.acelerar(3000));
