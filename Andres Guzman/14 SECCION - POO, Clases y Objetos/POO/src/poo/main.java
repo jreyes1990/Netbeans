@@ -28,5 +28,7 @@ public class main {
     System.out.println("Son iguales? "+(nissan == nissan2));
     System.out.println("Son iguales con equals? "+(nissan.equals(nissan2)));
     System.out.println("Son iguales (auto2 y nissan)? "+(auto2.equals(nissan2)));
+    System.out.println();
+    System.out.println(nissan);
   }  
 }

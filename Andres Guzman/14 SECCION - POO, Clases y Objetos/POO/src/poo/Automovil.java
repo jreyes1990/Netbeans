@@ -114,5 +114,11 @@ public class Automovil {
     Automovil a = (Automovil) obj;
     return (this.fabricante != null && this.modelo != null && this.fabricante.equals(a.getFabricante()) && this.modelo.equals(a.getModelo())); 
   }
+
+  @Override
+  public String toString() {
+    return "Automovil{fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.cilindrada+", capacidadEstanque="+this.capacidadEstanque+"}";
+  }
+  
   
 }
