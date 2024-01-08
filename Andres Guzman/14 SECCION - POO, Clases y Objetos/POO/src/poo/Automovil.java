@@ -6,6 +6,9 @@ public class Automovil {
   private String color;
   private double cilindrada;
   private int capacidadEstanque = 40;
+  
+  // Variables estaticas
+  private static String colorPatente = "Naranja";
 
   // Generando contructores de Automovil
   public Automovil() {
@@ -71,6 +74,14 @@ public class Automovil {
   public void setCapacidadEstanque(int capacidadEstanque) {
     this.capacidadEstanque = capacidadEstanque;
   }
+
+  public static String getColorPatente() {
+    return colorPatente;
+  }
+
+  public static void setColorPatente(String colorPatente) {
+    Automovil.colorPatente = colorPatente;
+  }
   
   public String verDetalle(){
     StringBuilder sb = new StringBuilder();
@@ -78,6 +89,7 @@ public class Automovil {
     sb.append("auto.fabricante = ").append(this.fabricante);
     sb.append("\nauto.modelo = ").append(this.modelo);
     sb.append("\nauto.color = ").append(this.color);
+    sb.append("\nauto.colorPatente = ").append(colorPatente);
     sb.append("\nauto.cilindrada = ").append(this.cilindrada);
     
     return sb.toString();
@@ -117,7 +129,7 @@ public class Automovil {
 
   @Override
   public String toString() {
-    return "Automovil{fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.cilindrada+", capacidadEstanque="+this.capacidadEstanque+"}";
+    return "Automovil{fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.cilindrada+", capacidadEstanque="+this.capacidadEstanque+", colorPatente='"+colorPatente+"'}";
   }
   
   
