@@ -1,36 +1,41 @@
 package poo;
 
 public class Automovil {
+  private int id;
   private String fabricante;
   private String modelo;
   private String color;
   private double cilindrada;
   private int capacidadEstanque = 40;
+  private static int capacidadEstanqueEstatico = 60;
+  private static int ultimoId;
   
   // Variables estaticas
   private static String colorPatente = "Naranja";
 
   // Generando contructores de Automovil
   public Automovil() {
+    this.id = ++ultimoId;
   }
 
   public Automovil(String fabricante, String modelo) {
+    this(); // Invocamos el contructor vacio
     this.fabricante = fabricante;
     this.modelo = modelo;
   }
 
   public Automovil(String fabricante, String modelo, String color) {
-    this(fabricante, modelo);
+    this(fabricante, modelo); // Invocamos el contructor y sus parametros
     this.color = color;
   }
 
   public Automovil(String fabricante, String modelo, String color, double cilindrada) {
-    this(fabricante, modelo, color);
+    this(fabricante, modelo, color); // Invocamos el contructor y sus parametros
     this.cilindrada = cilindrada;
   }
   
   public Automovil(String fabricante, String modelo, String color, double cilindrada, int capacidadEstanque) {
-    this(fabricante, modelo, color, cilindrada);
+    this(fabricante, modelo, color, cilindrada); // Invocamos el contructor y sus parametros
     this.capacidadEstanque = capacidadEstanque;
   }
   
@@ -82,11 +87,28 @@ public class Automovil {
   public static void setColorPatente(String colorPatente) {
     Automovil.colorPatente = colorPatente;
   }
+
+  public static int getCapacidadEstanqueEstatico() {
+    return capacidadEstanqueEstatico;
+  }
+
+  public static void setCapacidadEstanqueEstatico(int capacidadEstanqueEstatico) {
+    Automovil.capacidadEstanqueEstatico = capacidadEstanqueEstatico;
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
+  }
   
   public String verDetalle(){
     StringBuilder sb = new StringBuilder();
     
-    sb.append("auto.fabricante = ").append(this.fabricante);
+    sb.append("auto.id = ").append(this.id);
+    sb.append("\nauto.fabricante = ").append(this.fabricante);
     sb.append("\nauto.modelo = ").append(this.modelo);
     sb.append("\nauto.color = ").append(this.color);
     sb.append("\nauto.colorPatente = ").append(colorPatente);
@@ -117,6 +139,10 @@ public class Automovil {
   public float calcularConsumo(int km, int porcentajeBencina){
     return km/(capacidadEstanque*(porcentajeBencina/100f));
   }
+  
+  public static float calcularConsumoStatic(int km, float porcentajeBencina){
+    return km/(Automovil.capacidadEstanqueEstatico*porcentajeBencina);
+  }
 
   @Override
   public boolean equals(Object obj) {
@@ -129,7 +155,7 @@ public class Automovil {
 
   @Override
   public String toString() {
-    return "Automovil{fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.cilindrada+", capacidadEstanque="+this.capacidadEstanque+", colorPatente='"+colorPatente+"'}";
+    return "Automovil{id="+this.id+", fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.cilindrada+", capacidadEstanque="+this.capacidadEstanque+", colorPatente='"+colorPatente+"'}";
   }
   
   

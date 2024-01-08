@@ -39,6 +39,7 @@ public class main {
     System.out.println("Son iguales (auto2 y nissan)? "+(auto2.equals(nissan2)));
     */
     System.out.println();
-    System.out.println(nissan);
+    System.out.println(Automovil.calcularConsumoStatic(900, 0.75f));
+    System.out.println(nissan2);
   }  
 }
