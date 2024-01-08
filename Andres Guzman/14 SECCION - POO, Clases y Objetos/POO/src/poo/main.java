@@ -39,6 +39,10 @@ public class main {
     System.out.println("Son iguales (auto2 y nissan)? "+(auto2.equals(nissan2)));
     */
     System.out.println();
+    System.out.println("Velocidad maxima en carretera: "+Automovil.VELOCIDAD_MAX_CARRETERA);
+    System.out.println("Velocidad maxima en ciudad: "+Automovil.VELOCIDAD_MAX_CIUDAD);
+    
+    System.out.println();
     System.out.println(Automovil.calcularConsumoStatic(900, 0.75f));
     System.out.println(nissan2);
   }  

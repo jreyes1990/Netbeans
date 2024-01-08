@@ -7,11 +7,13 @@ public class Automovil {
   private String color;
   private double cilindrada;
   private int capacidadEstanque = 40;
-  private static int capacidadEstanqueEstatico = 60;
-  private static int ultimoId;
   
   // Variables estaticas
+  private static int capacidadEstanqueEstatico = 60;
+  private static int ultimoId;
   private static String colorPatente = "Naranja";
+  public static final Integer VELOCIDAD_MAX_CARRETERA = 120;
+  public static final int VELOCIDAD_MAX_CIUDAD = 60;
 
   // Generando contructores de Automovil
   public Automovil() {
