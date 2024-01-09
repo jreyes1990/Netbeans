@@ -49,5 +49,36 @@ public class main {
     System.out.println();
     System.out.println(Automovil.calcularConsumoStatic(900, 0.75f));
     System.out.println(nissan2);
+    
+    System.out.println();
+    TIpoAutomovil tipoSubaru = auto.getTipo();
+    System.out.println("tipo subaru: "+tipoSubaru.getNombre());
+    System.out.println("tipo desc. subaru: "+tipoSubaru.getDescripcion());
+    
+    switch (tipoSubaru) {
+      case CONVERTIBLE:
+        System.out.println("El automovil es deportivo y descapotable de dos puertas.");
+        break;
+      case COUPE:
+        System.out.println("Es un automovil pequeño de dos puertas y tipicamente deportivo.");
+        break;
+      case FURGON:
+        System.out.println("Es un automovil utilitario de transporte, de empresas.");
+        break;
+      case HATCHBACK:
+        System.out.println("Es un automovil mediano compacto, aspecto deportivo.");
+        break;
+      case PICKUP:
+        System.out.println("Es un automovil de doble cabina o camioneta.");
+        break;
+      case SEDAN:
+        System.out.println("Es un automovil mediano.");
+        break;
+      case STATION_WAGON:
+        System.out.println("Es un automovil mas grande, con maleta grande.");
+        break;
+      default:
+        throw new AssertionError();
+    }
   }  
 }
