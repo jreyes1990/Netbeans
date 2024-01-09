@@ -5,12 +5,16 @@ public class main {
   public static void main(String[] args) {
     Automovil auto = new Automovil("Subaru", "Impreza");
     Automovil mazda = new Automovil("Mazda", "BT-50", Automovil.COLOR_ROJO, 3.0);
+    mazda.setTipo(TIpoAutomovil.PICKUP);
     Automovil nissan = new Automovil("Nissan", "Navara", Automovil.COLOR_GRIS, 3.5, 50);
+    nissan.setTipo(TIpoAutomovil.PICKUP);
     Automovil nissan2 = new Automovil("Nissan", "Navara", Automovil.COLOR_GRIS, 3.5, 50);
+    nissan2.setTipo(TIpoAutomovil.PICKUP);
     Automovil auto2 = new Automovil();
     
     auto.setColor(Automovil.COLOR_BLANCO);
     auto.setCilindrada(2.0);
+    auto.setTipo(TIpoAutomovil.HATCHBACK);
     Automovil.setColorPatente(Automovil.COLOR_AMARILLO);
     
     

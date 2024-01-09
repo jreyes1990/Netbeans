@@ -9,6 +9,9 @@ public class Automovil {
   private double cilindrada;
   private int capacidadEstanque = 40;
   
+  // Declarando variable de tipo Enum
+  private TIpoAutomovil tipo;
+  
   // Variables estaticas
   private static int capacidadEstanqueEstatico = 60;
   private static int ultimoId;
@@ -113,6 +116,15 @@ public class Automovil {
   public void setId(int id) {
     this.id = id;
   }
+
+  public TIpoAutomovil getTipo() {
+    return tipo;
+  }
+
+  public void setTipo(TIpoAutomovil tipo) {
+    this.tipo = tipo;
+  }
+  
   
   public String verDetalle(){
     StringBuilder sb = new StringBuilder();
@@ -120,6 +132,7 @@ public class Automovil {
     sb.append("auto.id = ").append(this.id);
     sb.append("\nauto.fabricante = ").append(this.fabricante);
     sb.append("\nauto.modelo = ").append(this.modelo);
+    sb.append("\nauto.tipo = ").append(this.getTipo().getDescripcion());
     sb.append("\nauto.color = ").append(this.color);
     sb.append("\nauto.colorPatente = ").append(colorPatente);
     sb.append("\nauto.cilindrada = ").append(this.cilindrada);
