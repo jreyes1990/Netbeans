@@ -80,5 +80,13 @@ public class main {
       default:
         throw new AssertionError();
     }
+    
+    System.out.println();
+    
+    TIpoAutomovil[] tipos = TIpoAutomovil.values();
+    for (TIpoAutomovil ta : tipos) {
+      System.out.print(ta+" => "+ta.name()+", "+ta.getNombre()+", "+ta.getDescripcion()+", "+ta.getNumeroPuerta());
+      System.out.println();
+    }
   }  
 }
