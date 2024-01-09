@@ -6,8 +6,12 @@ public class Automovil {
   private String modelo;
   //private String color;
   private Color color = Color.GRIS;
-  private double cilindrada;
-  private int capacidadEstanque = 40;
+  private Motor motor;
+  private Estanque estanque;
+  private Persona conductor;
+  private Rueda[] ruedas;
+  // private double cilindrada;
+  // private int capacidadEstanque = 40;
   
   // Declarando variable de tipo Enum
   private TIpoAutomovil tipo;
@@ -42,14 +46,20 @@ public class Automovil {
     this.color = color;
   }
 
-  public Automovil(String fabricante, String modelo, Color color, double cilindrada) {
+  public Automovil(String fabricante, String modelo, Color color, Motor motor) {
     this(fabricante, modelo, color); // Invocamos el contructor y sus parametros
-    this.cilindrada = cilindrada;
+    this.motor = motor;
   }
   
-  public Automovil(String fabricante, String modelo, Color color, double cilindrada, int capacidadEstanque) {
-    this(fabricante, modelo, color, cilindrada); // Invocamos el contructor y sus parametros
-    this.capacidadEstanque = capacidadEstanque;
+  public Automovil(String fabricante, String modelo, Color color, Motor motor, Estanque estanque) {
+    this(fabricante, modelo, color, motor); // Invocamos el contructor y sus parametros
+    this.estanque = estanque;
+  }
+
+  public Automovil(String fabricante, String modelo, Color color, Motor motor, Estanque estanque, Persona conductor, Rueda[] ruedas) {
+    this(fabricante, modelo, color, motor, estanque); // Invocamos el contructor y sus parametros;
+    this.conductor = conductor;
+    this.ruedas = ruedas;
   }
   
   // Generando los getters y setters de los atributos private
@@ -77,22 +87,38 @@ public class Automovil {
     this.color = color;
   }
 
-  public double getCilindrada() {
-    return cilindrada;
+  public Motor getMotor() {
+    return motor;
   }
 
-  public void setCilindrada(double cilindrada) {
-    this.cilindrada = cilindrada;
+  public void setMotor(Motor motor) {
+    this.motor = motor;
   }
 
-  public int getCapacidadEstanque() {
-    return capacidadEstanque;
+  public Estanque getEstanque() {
+    return estanque;
   }
 
-  public void setCapacidadEstanque(int capacidadEstanque) {
-    this.capacidadEstanque = capacidadEstanque;
+  public void setEstanque(Estanque estanque) {
+    this.estanque = estanque;
   }
 
+  public Persona getConductor() {
+    return conductor;
+  }
+
+  public void setConductor(Persona conductor) {
+    this.conductor = conductor;
+  }
+
+  public Rueda[] getRuedas() {
+    return ruedas;
+  }
+
+  public void setRuedas(Rueda[] ruedas) {
+    this.ruedas = ruedas;
+  }
+  
   public static Color getColorPatente() {
     return colorPatente;
   }
@@ -135,7 +161,7 @@ public class Automovil {
     sb.append("\nauto.tipo = ").append(this.getTipo().getDescripcion());
     sb.append("\nauto.color = ").append(this.color);
     sb.append("\nauto.colorPatente = ").append(colorPatente);
-    sb.append("\nauto.cilindrada = ").append(this.cilindrada);
+    sb.append("\nauto.cilindrada = ").append(this.motor.getCilindrada());
     
     return sb.toString();
   }
@@ -156,11 +182,11 @@ public class Automovil {
   }
   
   public float calcularConsumo(int km, float porcentajeBencina){
-    return km/(capacidadEstanque*porcentajeBencina);
+    return km/(estanque.getCapacidad()*porcentajeBencina);
   }
   
   public float calcularConsumo(int km, int porcentajeBencina){
-    return km/(capacidadEstanque*(porcentajeBencina/100f));
+    return km/(estanque.getCapacidad()*(porcentajeBencina/100f));
   }
   
   public static float calcularConsumoStatic(int km, float porcentajeBencina){
@@ -178,7 +204,7 @@ public class Automovil {
 
   @Override
   public String toString() {
-    return "Automovil{id="+this.id+", fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.cilindrada+", capacidadEstanque="+this.capacidadEstanque+", colorPatente='"+colorPatente+"'}";
+    return "Automovil{id="+this.id+", fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.motor.getCilindrada()+", capacidadEstanque="+this.estanque.getCapacidad()+", colorPatente='"+colorPatente+"'}";
   }
   
   
