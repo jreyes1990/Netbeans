@@ -162,6 +162,10 @@ public class Automovil {
     sb.append("\nauto.color = ").append(this.color);
     sb.append("\nauto.colorPatente = ").append(colorPatente);
     sb.append("\nauto.cilindrada = ").append(this.motor.getCilindrada());
+    sb.append("\nauto.conductor = ").append(this.getConductor());
+    for (Rueda r : this.getRuedas()) {
+      sb.append("\nfabricante = "+r.getFabricante()+", aro = "+r.getAro()+", ancho = "+r.getAncho());
+    }
     
     return sb.toString();
   }
