@@ -4,14 +4,12 @@ public class Automovil {
   private int id;
   private String fabricante;
   private String modelo;
-  //private String color;
   private Color color = Color.GRIS;
   private Motor motor;
   private Estanque estanque;
   private Persona conductor;
   private Rueda[] ruedas;
-  // private double cilindrada;
-  // private int capacidadEstanque = 40;
+  private int indiceRuedas;
   
   // Declarando variable de tipo Enum
   private TIpoAutomovil tipo;
@@ -33,6 +31,7 @@ public class Automovil {
   // Generando contructores de Automovil
   public Automovil() {
     this.id = ++ultimoId;
+    this.ruedas = new Rueda[5];
   }
 
   public Automovil(String fabricante, String modelo) {
@@ -117,6 +116,14 @@ public class Automovil {
 
   public void setRuedas(Rueda[] ruedas) {
     this.ruedas = ruedas;
+  }
+  
+  public Automovil addRueda(Rueda rueda){
+    if (indiceRuedas < this.ruedas.length) {
+      this.ruedas[indiceRuedas++] = rueda;
+    }
+    
+    return this;
   }
   
   public static Color getColorPatente() {

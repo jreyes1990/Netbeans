@@ -4,22 +4,18 @@ public class main {
 
   public static void main(String[] args) {
     Persona conductorAuto = new Persona("Luci", "Martinez");
-    Rueda[] ruedasAuto = new Rueda[5];
-    ruedasAuto[0] = new Rueda("Yokohama", 16, 7.5);
-    ruedasAuto[1] = new Rueda("Yokohama", 16, 7.5);
-    ruedasAuto[2] = new Rueda("Yokohama", 16, 7.5);
-    ruedasAuto[3] = new Rueda("Yokohama", 16, 7.5);
-    ruedasAuto[4] = new Rueda("Yokohama", 16, 7.5);
     Automovil auto = new Automovil("Subaru", "Impreza");
     auto.setConductor(conductorAuto);
-    auto.setRuedas(ruedasAuto);
+    Rueda[] ruedasAuto = new Rueda[10];
+    for (int i = 0; i < ruedasAuto.length; i++) {
+      auto.addRueda(new Rueda("Yokohama", 16, 7.5));
+    }
     
     Persona conductorMazda = new Persona("Pato", "Rodriguez");
-    Rueda[] ruedasMazda = {new Rueda("Michelin", 18, 10.5),
-                           new Rueda("Michelin", 18, 10.5),
-                           new Rueda("Michelin", 18, 10.5),
-                           new Rueda("Michelin", 18, 10.5),
-                           new Rueda("Michelin", 18, 10.5)};
+    Rueda[] ruedasMazda = new Rueda[5];
+    for (int i = 0; i < ruedasMazda.length; i++) {
+      ruedasMazda[i] = new Rueda("Michelin", 18, 10.5);
+    }
     Automovil mazda = new Automovil("Mazda", "BT-50", Automovil.COLOR_ROJO, new Motor(3.0, TipoMotor.DIESEL));
     mazda.setEstanque(new Estanque(45));
     mazda.setTipo(TIpoAutomovil.PICKUP);
@@ -27,20 +23,18 @@ public class main {
     mazda.setRuedas(ruedasMazda);
     
     Persona conductorNissan = new Persona("Bea", "Gonzalez");
-    Rueda[] ruedasNissan = {new Rueda("Pirelli", 20, 11.5),
-                            new Rueda("Pirelli", 20, 11.5),
-                            new Rueda("Pirelli", 20, 11.5),
-                            new Rueda("Pirelli", 20, 11.5),
-                            new Rueda("Pirelli", 20, 11.5)};
+    Rueda[] ruedasNissan = new Rueda[5];
+    for (int i = 0; i < ruedasNissan.length; i++) {
+      ruedasNissan[i] = new Rueda("Pirelli", 20, 11.5);
+    }
     Automovil nissan = new Automovil("Nissan", "Navara", Automovil.COLOR_GRIS, new Motor(4.0, TipoMotor.DIESEL), new Estanque(50), conductorNissan, ruedasNissan);
     nissan.setTipo(TIpoAutomovil.PICKUP);
     
     Persona conductorNissan2 = new Persona("Lalo", "Mena");
-    Rueda[] ruedasNissan2 = {new Rueda("Pirelli", 20, 11.5),
-                             new Rueda("Pirelli", 20, 11.5),
-                             new Rueda("Pirelli", 20, 11.5),
-                             new Rueda("Pirelli", 20, 11.5),
-                             new Rueda("Pirelli", 20, 11.5)};
+    Rueda[] ruedasNissan2 = new Rueda[5];
+    for (int i = 0; i < ruedasNissan2.length; i++) {
+      ruedasNissan2[i] = new Rueda("Pirelli", 20, 11.5);
+    }
     Automovil nissan2 = new Automovil("Nissan", "Navara", Automovil.COLOR_GRIS, new Motor(3.5, TipoMotor.BENCINA), new Estanque(50), conductorNissan2, ruedasNissan2);
     nissan2.setTipo(TIpoAutomovil.PICKUP);
     Automovil auto2 = new Automovil();
