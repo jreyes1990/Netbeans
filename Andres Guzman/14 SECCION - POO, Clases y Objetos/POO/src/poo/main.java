@@ -1,5 +1,7 @@
 package poo;
 
+import java.util.Arrays;
+
 public class main {
 
   public static void main(String[] args) {
@@ -115,5 +117,18 @@ public class main {
       System.out.print(ta+" => "+ta.name()+", "+ta.getNombre()+", "+ta.getDescripcion()+", "+ta.getNumeroPuerta());
       System.out.println();
     }
+    /*
+    System.out.println();
+    Automovil[] autos = new Automovil[4];
+    autos[0] = auto;
+    autos[1] = mazda;
+    autos[2] = nissan;
+    autos[3] = nissan2;
+    
+    Arrays.sort(autos);
+    for (int i = 0; i < autos.length; i++) {
+      System.out.println(autos[i]);
+    }
+    */
   }  
 }

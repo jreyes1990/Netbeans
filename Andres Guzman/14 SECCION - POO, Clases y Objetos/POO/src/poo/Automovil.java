@@ -1,6 +1,6 @@
 package poo;
 
-public class Automovil {
+public class Automovil implements Comparable<Automovil>{
   private int id;
   private String fabricante;
   private String modelo;
@@ -216,6 +216,11 @@ public class Automovil {
   @Override
   public String toString() {
     return "Automovil{id="+this.id+", fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.motor.getCilindrada()+", capacidadEstanque="+this.estanque.getCapacidad()+", colorPatente='"+colorPatente+"'}";
+  }
+
+  @Override
+  public int compareTo(Automovil a) {
+    return this.fabricante.compareTo(a.fabricante);
   }
   
   
