@@ -95,6 +95,9 @@ public class Automovil implements Comparable<Automovil>{
   }
 
   public Estanque getEstanque() {
+    if(estanque == null){
+      this.estanque = new Estanque();
+    }
     return estanque;
   }
 
@@ -206,6 +209,10 @@ public class Automovil implements Comparable<Automovil>{
 
   @Override
   public boolean equals(Object obj) {
+    if(this == obj){
+      return true;
+    }
+    
     if (!(obj instanceof Automovil)) {
       return false;
     }
@@ -215,7 +222,7 @@ public class Automovil implements Comparable<Automovil>{
 
   @Override
   public String toString() {
-    return "Automovil{id="+this.id+", fabricante='"+this.fabricante+"', modelo='"+this.modelo+"', color='"+this.color+"', cilindrada="+this.motor.getCilindrada()+", capacidadEstanque="+this.estanque.getCapacidad()+", colorPatente='"+colorPatente+"'}";
+    return this.id + " : " + fabricante + " " + modelo;
   }
 
   @Override
