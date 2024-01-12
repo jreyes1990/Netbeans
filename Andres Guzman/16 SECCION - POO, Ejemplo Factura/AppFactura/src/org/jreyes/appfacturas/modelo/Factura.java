@@ -83,6 +83,6 @@ public class Factura {
       .append("\n")
       .append("\n#\tNombre\t$\tCantidad\tTotal\n");
     
-    return sb;
+    return sb.toString();
   }
 }
