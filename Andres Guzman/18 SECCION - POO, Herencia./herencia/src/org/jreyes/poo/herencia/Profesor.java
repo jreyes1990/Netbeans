@@ -4,6 +4,10 @@ package org.jreyes.poo.herencia;
 public class Profesor extends Persona {
   private String asignatura;
 
+  public Profesor() {
+    System.out.println("Profesor: Inicializando contructor");
+  }
+  
   public String getAsignatura() {
     return asignatura;
   }
