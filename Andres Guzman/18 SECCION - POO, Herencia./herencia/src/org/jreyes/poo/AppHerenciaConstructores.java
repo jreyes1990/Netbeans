@@ -59,6 +59,11 @@ public class AppHerenciaConstructores {
         System.out.println("Nota idiomas: "+((AlumnoInternacional) persona).getNotaIdiomas());
         System.out.println("Pais: "+((AlumnoInternacional) persona).getPais());
       }
+      
+      System.out.println();
+      System.out.println("Imprimiendo sobreescritura promedio:");
+      System.out.println("Promedio: "+((Alumno) persona).calcularPromedio());
+      System.out.println("************************************************************");
     }
     
     if (persona instanceof Profesor) {
@@ -66,5 +71,10 @@ public class AppHerenciaConstructores {
       System.out.println("Imprimiendo los datos del tipo Profesor:");
       System.out.println("Asignatura: "+((Profesor) persona).getAsignatura());
     }
+    
+    System.out.println();
+    System.out.println("Imprimiendo sobreescritura saludar:");
+    System.out.println(persona.saludar());
+    System.out.println("************************************************************");
   }
 }
