@@ -5,17 +5,15 @@ import org.jreyes.poo.herencia.AlumnoInternacional;
 import org.jreyes.poo.herencia.Persona;
 import org.jreyes.poo.herencia.Profesor;
 
-public class AppHerenciaConstructores {
+public class AppHerenciaToString {
 
   public static void main(String[] args) {
-    System.out.println("***** CREANDO LA INSTANCIA DE LA CLASE ALUMNO *****");
     Alumno alumno = new Alumno("Jolberth", "Jolberth", 33, "Instituto Nacional");
     alumno.setNotaCastellano(5.5);
     alumno.setNotaHistoria(6.3);
     alumno.setNotaMatematica(4.9);
     alumno.setEmail("jreyes@gmail.com");
     
-    System.out.println("\n***** CREANDO LA INSTANCIA DE LA CLASE ALUMNO INTERNACIONAL *****");
     AlumnoInternacional alumnoInt = new AlumnoInternacional("Peter", "Gosling", "Australia");
     alumnoInt.setEdad(15);
     alumnoInt.setInstitucion("Instituto Nacional");
@@ -25,7 +23,6 @@ public class AppHerenciaConstructores {
     alumnoInt.setNotaMatematica(6.5);
     alumnoInt.setEmail("peter@hotmail.com");
     
-    System.out.println("\n***** CREANDO LA INSTANCIA DE LA CLASE PROFESOR *****");
     Profesor profesor = new Profesor("Roberto", "Osorio", "Matematicas");
     profesor.setEdad(37);
     profesor.setEmail("rosorio@yahoo.com");
@@ -35,46 +32,17 @@ public class AppHerenciaConstructores {
     System.out.println("Alumno Internacional: "+alumnoInt.getNombre()+" "+alumnoInt.getApellido()+" "+alumnoInt.getInstitucion()+" "+alumnoInt.getPais());
     System.out.println("Profesor "+profesor.getAsignatura()+": "+profesor.getNombre()+" "+profesor.getApellido());
     
+    System.out.println("\n************************************************************");
+    System.out.println("***** VISUALIZANDO LA INSTANCIA DE LA CLASE ALUMNO *****");
     imprimir(alumno);
+    System.out.println("\n***** VISUALIZANDO LA INSTANCIA DE LA CLASE ALUMNO INTERNACIONAL *****");
     imprimir(alumnoInt);
+    System.out.println("\n***** VISUALIZANDO LA INSTANCIA DE LA CLASE ALUMNO INTERNACIONAL *****");
     imprimir(profesor);
   }  
   
   public static void imprimir(Persona persona){
     System.out.println();
-    System.out.println("Imprimiendo los datos del tipo Persona:");
-    System.out.println("nombre: "+persona.getNombre()+" apellido: "+persona.getApellido()+", edad: "+persona.getEdad()+", email: "+persona.getEmail());
-    
-    if (persona instanceof Alumno) {
-      System.out.println();
-      System.out.println("Imprimiendo los datos del tipo Alumno:");
-      System.out.println("Institucion: "+((Alumno) persona).getInstitucion());
-      System.out.println("Nota matematicas: "+((Alumno) persona).getNotaMatematica());
-      System.out.println("Nota historia: "+((Alumno) persona).getNotaHistoria());
-      System.out.println("Nota Castellano: "+((Alumno) persona).getNotaCastellano());
-      
-      if (persona instanceof AlumnoInternacional) {
-        System.out.println();
-        System.out.println("Imprimiendo los datos del tipo AlumnoInternacional:");
-        System.out.println("Nota idiomas: "+((AlumnoInternacional) persona).getNotaIdiomas());
-        System.out.println("Pais: "+((AlumnoInternacional) persona).getPais());
-      }
-      
-      System.out.println();
-      System.out.println("Imprimiendo sobreescritura promedio:");
-      System.out.println("Promedio: "+((Alumno) persona).calcularPromedio());
-      System.out.println("************************************************************");
-    }
-    
-    if (persona instanceof Profesor) {
-      System.out.println();
-      System.out.println("Imprimiendo los datos del tipo Profesor:");
-      System.out.println("Asignatura: "+((Profesor) persona).getAsignatura());
-    }
-    
-    System.out.println();
-    System.out.println("Imprimiendo sobreescritura saludar:");
-    System.out.println(persona.saludar());
-    System.out.println("************************************************************");
+    System.out.println(persona);
   }
 }
