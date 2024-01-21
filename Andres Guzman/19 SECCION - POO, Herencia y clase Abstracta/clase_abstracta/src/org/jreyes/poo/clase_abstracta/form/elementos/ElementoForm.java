@@ -2,7 +2,9 @@ package org.jreyes.poo.clase_abstracta.form.elementos;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.jreyes.poo.clase_abstracta.form.validador.LargoValidador;
 import org.jreyes.poo.clase_abstracta.form.validador.Validador;
+import org.jreyes.poo.clase_abstracta.form.validador.mensaje.MensajeFormateable;
 
 abstract public class ElementoForm {
   protected String valor;
@@ -45,7 +47,11 @@ abstract public class ElementoForm {
   public boolean esValido(){
     for (Validador v : validadores) {
       if (!v.esValido(this.valor)) {
-        this.errores.add(v.getMensaje());
+        if (v instanceof MensajeFormateable) {
+          this.errores.add(((LargoValidador) v).getMensajeFormateado(nombre));
+        } else {
+          this.errores.add(String.format(v.getMensaje(), nombre));
+        }
       }
     }
     return this.errores.isEmpty();

@@ -1,6 +1,8 @@
 package org.jreyes.poo.clase_abstracta.form.validador;
 
-public class LargoValidador extends Validador {
+import org.jreyes.poo.clase_abstracta.form.validador.mensaje.MensajeFormateable;
+
+public class LargoValidador extends Validador implements MensajeFormateable {
   protected String mensaje = "El campo debe tener minimo %d caracteres y maximo %d caracteres";
   private int min;
   private int max = Integer.MAX_VALUE;
@@ -40,6 +42,11 @@ public class LargoValidador extends Validador {
     int largo = valor.length();
     
     return (largo >= min && largo <= max);
+  }
+
+  @Override
+  public String getMensajeFormateado(String campo) {
+    return String.format(this.mensaje, campo, this.min, this.max);
   }
   
 }
