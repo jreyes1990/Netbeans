@@ -28,7 +28,7 @@ public class SelectForm extends ElementoForm {
     sb.append("name='").append(this.nombre).append("'>");
     
     for (Opcion opcion : opciones) {
-      sb.append("\n<option value='").append(opcion.getValor()).append("' ");
+      sb.append("\n\t<option value='").append(opcion.getValor()).append("' ");
       if (opcion.isSelected()) {
         sb.append("selected");
         this.valor = opcion.getValor();
@@ -36,7 +36,7 @@ public class SelectForm extends ElementoForm {
       sb.append(">").append(opcion.getNombre()).append("</option>");
       
     }
-    sb.append("</select>");
+    sb.append("\n</select>");
     
     return sb.toString();
   }

@@ -1,7 +1,11 @@
 package org.jreyes.poo.clase_abstracta.form;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import org.jreyes.poo.clase_abstracta.form.elementos.ElementoForm;
 import org.jreyes.poo.clase_abstracta.form.elementos.InputForm;
 import org.jreyes.poo.clase_abstracta.form.elementos.SelectForm;
 import org.jreyes.poo.clase_abstracta.form.elementos.TextAreaForm;
@@ -32,6 +36,28 @@ public class EjemploForm {
     password.setValor("jreyes1990");
     email.setValor("jreyes@madretierra.com.gt");
     edad.setValor("33");
+    experiencia.setValor("... mas de 3 meses de experiencia");
+    
     java.setSelected(true);
+    
+    /*
+    List<ElementoForm> elementos = new ArrayList<>();
+    elementos.add(username);
+    elementos.add(password);
+    elementos.add(email);
+    elementos.add(edad);
+    elementos.add(experiencia);
+    elementos.add(lenguaje);
+    
+    for (ElementoForm e : elementos) {
+      System.out.println(e.dibujarHtml());
+    }
+    */
+    
+    List<ElementoForm> elementos = Arrays.asList(username, password, email, edad, experiencia, lenguaje);
+    
+    elementos.forEach(e -> {
+      System.out.println(e.dibujarHtml());
+    });
   }  
 }
