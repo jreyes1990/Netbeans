@@ -7,18 +7,24 @@ import java.util.List;
 import java.util.Set;
 import org.jreyes.poo.clase_abstracta.form.elementos.*;
 import org.jreyes.poo.clase_abstracta.form.elementos.select.Opcion;
+import org.jreyes.poo.clase_abstracta.form.validador.*;
 
 public class EjemploForm {
 
   public static void main(String[] args) {
     InputForm username = new InputForm("username");
+    username.addValidador(new RequeridoValidador());
     InputForm password = new InputForm("clave", "password");
+    password.addValidador(new RequeridoValidador()).addValidador(new LargoValidador(6, 12));
     InputForm email = new InputForm("email", "email");
+    email.addValidador(new RequeridoValidador()).addValidador(new EmailValidador());
     InputForm edad = new InputForm("edad", "number");
+    edad.addValidador(new NumeroValidador());
     
     TextAreaForm experiencia = new TextAreaForm("exp", 5, 9);
     
     SelectForm lenguaje = new SelectForm("lenguaje");
+    lenguaje.addValidador(new NoNuloValidador());
     
     Opcion java = new Opcion("1", "Java");
     
@@ -63,6 +69,12 @@ public class EjemploForm {
     
     elementos.forEach(e -> {
       System.out.println(e.dibujarHtml());
+    });
+    
+    elementos.forEach(e -> {
+      if (!e.esValido()) {
+        e.getErrores().forEach(err -> System.out.println(e.getNombre()+" -> ("+e.getValor()+") , "+err));
+      }
     });
   }  
 }
