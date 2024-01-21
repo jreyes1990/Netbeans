@@ -33,6 +33,11 @@ public class Opcion {
     return selected;
   }
 
+  public Opcion setSelected() {
+    this.selected = true;
+    return this;
+  }
+  
   public void setSelected(boolean selected) {
     this.selected = selected;
   }

@@ -5,10 +5,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.jreyes.poo.clase_abstracta.form.elementos.ElementoForm;
-import org.jreyes.poo.clase_abstracta.form.elementos.InputForm;
-import org.jreyes.poo.clase_abstracta.form.elementos.SelectForm;
-import org.jreyes.poo.clase_abstracta.form.elementos.TextAreaForm;
+import org.jreyes.poo.clase_abstracta.form.elementos.*;
 import org.jreyes.poo.clase_abstracta.form.elementos.select.Opcion;
 
 public class EjemploForm {
@@ -30,15 +27,23 @@ public class EjemploForm {
     lenguaje.addOpcion(new Opcion("3", "JavaSript"));
     lenguaje.addOpcion(new Opcion("4", "TypeScript"));
     lenguaje.addOpcion(new Opcion("5", "PHP"));
-    lenguaje.addOpcion(new Opcion("6", "Ruby On Rails"));
+    lenguaje.addOpcion(new Opcion("6", "Ruby On Rails").setSelected());
     
+    ElementoForm saludar = new ElementoForm("saludo") {
+      @Override
+      public String dibujarHtml() {
+        return "<input disabled name='"+this.nombre+"' value=\""+this.valor+"\">";
+      }
+    };
+    
+    saludar.setValor("Hola que tal, este campo esta deshabilitado");
     username.setValor("jreyes");
     password.setValor("jreyes1990");
     email.setValor("jreyes@madretierra.com.gt");
     edad.setValor("33");
     experiencia.setValor("... mas de 3 meses de experiencia");
     
-    java.setSelected(true);
+    // java.setSelected(true);
     
     /*
     List<ElementoForm> elementos = new ArrayList<>();
@@ -54,7 +59,7 @@ public class EjemploForm {
     }
     */
     
-    List<ElementoForm> elementos = Arrays.asList(username, password, email, edad, experiencia, lenguaje);
+    List<ElementoForm> elementos = Arrays.asList(username, password, email, edad, experiencia, lenguaje, saludar);
     
     elementos.forEach(e -> {
       System.out.println(e.dibujarHtml());
