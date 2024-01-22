@@ -15,6 +15,11 @@ public class Curriculum extends Hoja {
     this.experiencias = new ArrayList<>();
   }
 
+  public Curriculum addExperiencia(String exp){
+    experiencias.add(exp);
+    return this;
+  }
+  
   @Override
   public String imprimir() {
     StringBuilder sb = new StringBuilder();
