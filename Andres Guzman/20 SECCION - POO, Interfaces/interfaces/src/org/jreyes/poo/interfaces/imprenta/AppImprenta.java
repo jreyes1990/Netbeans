@@ -3,6 +3,7 @@ package org.jreyes.poo.interfaces.imprenta;
 import org.jreyes.poo.interfaces.imprenta.modelo.Curriculum;
 import org.jreyes.poo.interfaces.imprenta.modelo.Genero;
 import org.jreyes.poo.interfaces.imprenta.modelo.Hoja;
+import org.jreyes.poo.interfaces.imprenta.modelo.Imprimible;
 import org.jreyes.poo.interfaces.imprenta.modelo.Informe;
 import org.jreyes.poo.interfaces.imprenta.modelo.Libro;
 import org.jreyes.poo.interfaces.imprenta.modelo.Pagina;
@@ -30,7 +31,7 @@ public class AppImprenta {
     imprimir(informe);
   } 
   
-  public static void imprimir(Hoja imprimible){
+  public static void imprimir(Imprimible imprimible){
     System.out.println(imprimible.imprimir());
   }
 }
