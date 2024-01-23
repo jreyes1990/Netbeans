@@ -29,6 +29,7 @@ public class AppImprenta {
 
     imprimir(cv);
     imprimir(informe);
+    imprimir(libro);
   }
 
   public static void imprimir(Imprimible imprimible) {
