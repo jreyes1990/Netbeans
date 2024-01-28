@@ -1,5 +1,7 @@
 package org.poo.repositorio.modelo;
 
+import java.util.Objects;
+
 public class Cliente {
   private Integer id;
   private String nombre;
@@ -49,6 +51,27 @@ public class Cliente {
     sb.append(", apellido=").append(apellido);
 
     return sb.toString();
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    
+    final Cliente cliente = (Cliente) obj;
+    return Objects.equals(this.id, cliente.id);
   }
   
 }
