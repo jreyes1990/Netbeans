@@ -1,6 +1,7 @@
 package org.poo.repositorio.implementos;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import org.poo.repositorio.interfaces.CrudRepositorio;
 import org.poo.repositorio.interfaces.Direccion;
@@ -55,38 +56,20 @@ public class ClienteListRepositorio implements CrudRepositorio, OrdenableReposit
 
   @Override
   public List<Cliente> listar(String campo, Direccion dir) {
-    dataSource.sort((a, b) -> {
+    List<Cliente> listaOrdenada = new ArrayList<>(this.dataSource);
+
+    listaOrdenada.sort((a, b) -> {
       int resultado = 0;
 
       if (dir == Direccion.ASC) {
-        switch (campo) {
-          case "id":
-            resultado = a.getId().compareTo(b.getId());
-            break;
-          case "nombre":
-            resultado = a.getNombre().compareTo(b.getNombre());
-            break;
-          case "apellido":
-            resultado = a.getApellido().compareTo(b.getApellido());
-            break;
-        }
+        resultado = OrdenableRepositorio.ordenar(campo, a, b);
       } else if (dir == Direccion.DESC) {
-        switch (campo) {
-          case "id":
-            resultado = b.getId().compareTo(a.getId());
-            break;
-          case "nombre":
-            resultado = b.getNombre().compareTo(a.getNombre());
-            break;
-          case "apellido":
-            resultado = b.getApellido().compareTo(a.getApellido());
-            break;
-        }
+        resultado = OrdenableRepositorio.ordenar(campo, b, a);
       }
       return resultado;
     });
 
-    return dataSource;
+    return listaOrdenada;
   }
 
   @Override
