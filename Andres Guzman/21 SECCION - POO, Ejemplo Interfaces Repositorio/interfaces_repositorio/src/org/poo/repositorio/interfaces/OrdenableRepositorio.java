@@ -5,4 +5,6 @@ import org.poo.repositorio.modelo.Cliente;
 
 public interface OrdenableRepositorio {
   List<Cliente> listar(String campo, Direccion dir);
+
+  public List<Cliente> listar(int i, int i0);
 }

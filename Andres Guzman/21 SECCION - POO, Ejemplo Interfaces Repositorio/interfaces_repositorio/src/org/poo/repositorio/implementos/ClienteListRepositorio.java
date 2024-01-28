@@ -1,7 +1,6 @@
 package org.poo.repositorio.implementos;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import org.poo.repositorio.interfaces.CrudRepositorio;
 import org.poo.repositorio.interfaces.Direccion;
@@ -19,7 +18,7 @@ public class ClienteListRepositorio implements CrudRepositorio, OrdenableReposit
 
   @Override
   public List<Cliente> listar() {
-    return null;
+    return dataSource;
   }
 
   @Override
@@ -27,7 +26,7 @@ public class ClienteListRepositorio implements CrudRepositorio, OrdenableReposit
     Cliente resultado = null;
 
     for (Cliente cli : dataSource) {
-      if (cli.getId().equals(id)) {
+      if (cli.getId() != null && cli.getId().equals(id)) {
         resultado = cli;
         break;
       }
