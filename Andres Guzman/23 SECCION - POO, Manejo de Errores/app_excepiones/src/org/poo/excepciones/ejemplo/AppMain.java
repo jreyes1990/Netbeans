@@ -6,17 +6,16 @@ public class AppMain {
 
   public static void main(String[] args) {
     Calculadora cal = new Calculadora();
-    String valor = JOptionPane.showInputDialog("Ingrese un entero: ");
-    int divisor;
-    double division;
+    String numerador = JOptionPane.showInputDialog("Ingrese un numerador: ");
+    String denominador = JOptionPane.showInputDialog("Ingrese un denominador: ");
     
     try {
-      divisor = Integer.parseInt(valor);
-      division = cal.dividir(10, divisor);
+      double division = cal.dividir(numerador, denominador);
       
       System.out.println("resultado = "+division);
-    } catch (NumberFormatException nfe) {
+    } catch (FormatoNumeroException nfe) {
       System.out.println("Se detecto una excepcion: ingrese un valor numerico: "+nfe.getMessage());
+      nfe.printStackTrace(System.out);
       main(args);
     } catch (DivisionPorZeroException ae) {
       System.out.println(ae.getMessage());
