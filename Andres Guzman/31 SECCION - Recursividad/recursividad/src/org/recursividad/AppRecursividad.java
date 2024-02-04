@@ -1,5 +1,6 @@
 package org.recursividad;
 
+import java.util.stream.Stream;
 import org.recursividad.models.Componente;
 
 public class AppRecursividad {
@@ -23,5 +24,24 @@ public class AppRecursividad {
     tv.addComponente(gpu).addComponente(gpuRam).addComponente(gpuRam2).addComponente(gpuVentiladores);
     placaMadre.addComponente(cpu).addComponente(tv).addComponente(ram).addComponente(ssd);
     pc.addComponente(poder).addComponente(placaMadre).addComponente(new Componente("Teclado")).addComponente(new Componente("Mouse"));
-  }  
+    
+    Recursivo(pc, 0).forEach(c -> System.out.println("\t".repeat(c.getNivel())+c.getNombre()));
+    // Recursivo(pc, 0);
+  }
+  
+  public static Stream<Componente> Recursivo(Componente c, int nivel){
+    c.setNivel(nivel);
+    return Stream.concat(Stream.of(c), c.getHijos().stream().flatMap(hijo -> Recursivo(hijo, nivel+1)));
+  }
+  
+  /*
+  public static void Recursivo(Componente c, int nivel){
+    System.out.println("\t".repeat(nivel)+c.getNombre());
+    if (c.tieneHijos()) {
+      for (Componente hijo : c.getHijos()) {
+        Recursivo(hijo, nivel+1);
+      }
+    }
+  }
+  */
 }
