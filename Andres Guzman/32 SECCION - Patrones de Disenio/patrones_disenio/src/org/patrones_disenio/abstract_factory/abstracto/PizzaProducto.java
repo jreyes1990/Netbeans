@@ -12,8 +12,12 @@ abstract public class PizzaProducto {
   public PizzaProducto() {
     this.ingredientes = new ArrayList<>();
   }
+
+  public String getNombre() {
+    return nombre;
+  }
   
-  public void prepara(){
+  public void preparar(){
     System.out.println("Preparando "+this.nombre);
     System.out.println("Seleccionando la masa "+this.masa);
     System.out.println("Agregando salsa "+this.salsa);
