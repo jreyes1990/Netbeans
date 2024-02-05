@@ -4,7 +4,7 @@ abstract public class PizzeriaZona {
   public PizzaProducto ordenarPizza(String tipo){
     String separador = "----------";
     PizzaProducto pizza = crearPizza(tipo);
-    System.out.println(separador+" fabricando la pizza "+pizza.getNombre()+" "+separador);
+    System.out.println(separador+" fabricando la "+pizza.getNombre()+" "+separador);
     pizza.preparar();
     pizza.cocinar();
     pizza.cortar();
