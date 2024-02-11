@@ -3,6 +3,7 @@ package com.jreyes.jdbc.interfaces;
 import com.jreyes.jdbc.modelo.Producto;
 import com.jreyes.jdbc.util.ConexionBD;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,23 +41,50 @@ public class ProductoRepositorioImpl implements Repositorio<Producto> {
     
     try (PreparedStatement stmt = getConnection().prepareStatement("select * from productos where id = ?")) {
       stmt.setLong(1, id);
-      ResultSet rs = stmt.executeQuery();
-      if (rs.next()) {
-        producto = crearProducto(rs);
+      try (ResultSet rs = stmt.executeQuery()) {
+        if (rs.next()) {
+          producto = crearProducto(rs);
+        }
       }
-      rs.close();
     } catch (Exception e) {
+      e.printStackTrace();
     }
     
     return producto;
   }
 
   @Override
-  public void guardar(Producto t) {
+  public void guardar(Producto producto) {
+    String sql;
+    
+    if (producto.getId() != null && producto.getId() > 0) {
+      sql = "update productos set nombre=?, precio=? where id=?";
+    } else {
+      sql = "insert into productos(nombre, precio, fecha_registro) values(?, ?, ?)";
+    }
+    
+    try (PreparedStatement stmt = getConnection().prepareStatement(sql)) {
+      stmt.setString(1, producto.getNombre());
+      stmt.setLong(2, producto.getPrecio());
+      
+      if (producto.getId() != null && producto.getId() > 0) {
+        stmt.setLong(3, producto.getId());
+      } else {
+        stmt.setDate(3, new Date(producto.getFechaRegistro().getTime()));
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   @Override
   public void eliminar(Long id) {
+    try (PreparedStatement stmt = getConnection().prepareStatement("delete from productos where id = ?")) {
+      stmt.setLong(1, id);
+      stmt.executeQuery();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
   
   private Producto crearProducto(final ResultSet rs) throws SQLException {
