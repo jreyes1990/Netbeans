@@ -1,0 +1,36 @@
+# Configuracion de variables de entorno de java
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+
+
+# Configuracion de variables de entorno de apache tomcat
+export CATALINA_HOME=/home/jreyes/servidores/apache-tomcat-9.0.85
+export PATH=$CATALINA_HOME/bin:$PATH
+
+
+# Configuracion de variables de entorno de apache maven
+export M2_HOME=/home/jreyes/servidores/apache-maven-3.9.6
+export MAVEN_HOME=${M2_HOME}
+export PATH=${M2_HOME}/bin:${PATH}
+
+
+
+
+chmod +x /home/jreyes/servidores/apache-tomcat-9.0.85/bin/catalina.sh
+chmod +x /home/jreyes/servidores/apache-tomcat-9.0.85/bin/startup.sh
+chmod +x /home/jreyes/servidores/apache-tomcat-9.0.85/bin/shutdown.sh
+
+* PAGINA DE DEPENDENCIAS DE MAVEN.
+  https://mvnrepository.com/
+
+* ARCHIVO "tomcat-users.xml"
+<tomcat-users xmlns="http://tomcat.apache.org/xml"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd"
+              version="1.0">
+  <role rolename="tomcat"/>
+  <user username="tomcat" password="tomcat" roles="manager-gui"/>
+</tomcat-users>
+
+* List of tz database time zones
+  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
