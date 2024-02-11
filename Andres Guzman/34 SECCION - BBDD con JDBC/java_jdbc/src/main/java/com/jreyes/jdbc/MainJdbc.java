@@ -1,8 +1,10 @@
 package com.jreyes.jdbc;
 
+import com.jreyes.jdbc.interfaces.ProductoRepositorioImpl;
+import com.jreyes.jdbc.interfaces.Repositorio;
+import com.jreyes.jdbc.modelo.Producto;
 import com.jreyes.jdbc.util.ConexionBD;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,6 +12,7 @@ import java.sql.Statement;
 public class MainJdbc {
   
   public static void main(String[] args) { 
+    /*
     try (Connection conn = ConexionBD.getInstance();
          Statement stmt = conn.createStatement();
          ResultSet resultado = stmt.executeQuery("select * from productos");
@@ -25,6 +28,16 @@ public class MainJdbc {
       }
     } catch (SQLException ex) {
       ex.printStackTrace();
+    }
+    */
+    
+    System.out.println("\nSEGUNDA CONSULTA");
+    try (Connection conn = ConexionBD.getInstance()
+        ) {
+      Repositorio<Producto> repositorio = new ProductoRepositorioImpl();
+      repositorio.listar().forEach(p -> System.out.println(p.getNombre()));
+    } catch (SQLException e) {
+      e.printStackTrace();
     }
   }  
 }
