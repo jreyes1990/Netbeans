@@ -13,16 +13,19 @@ public class MainJdbc {
     String user = "root";
     String password = "root";
     
-    try {
-      Connection conn = DriverManager.getConnection(url, user, password);
-      Statement stmt = conn.createStatement();
-      ResultSet resultado = stmt.executeQuery("select * from productos");
-      while (resultado.next()) {        
-        System.out.println(resultado.getString("nombre"));
+    try (Connection conn = DriverManager.getConnection(url, user, password);
+         Statement stmt = conn.createStatement();
+         ResultSet resultado = stmt.executeQuery("select * from productos");
+        ) {
+      while (resultado.next()) {   
+        System.out.print(resultado.getInt("id"));
+        System.out.print(" | ");
+        System.out.print(resultado.getString("nombre"));
+        System.out.print("\t | ");
+        System.out.print(resultado.getInt("precio"));
+        System.out.print("\t | ");
+        System.out.println(resultado.getDate("fecha_registro"));
       }
-      resultado.close();
-      stmt.close();
-      conn.close();
     } catch (SQLException ex) {
       ex.printStackTrace();
     }
