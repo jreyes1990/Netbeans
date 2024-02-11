@@ -35,7 +35,10 @@ public class MainJdbc {
     try (Connection conn = ConexionBD.getInstance()
         ) {
       Repositorio<Producto> repositorio = new ProductoRepositorioImpl();
-      repositorio.listar().forEach(p -> System.out.println(p.getNombre()));
+      repositorio.listar().forEach(p -> System.out.println(p));
+      
+      System.out.println("\nBusqueda por ID");
+      System.out.println(repositorio.porId(1L));
     } catch (SQLException e) {
       e.printStackTrace();
     }
