@@ -72,6 +72,8 @@ public class ProductoRepositorioImpl implements Repositorio<Producto> {
       } else {
         stmt.setDate(3, new Date(producto.getFechaRegistro().getTime()));
       }
+      
+      stmt.executeUpdate();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -81,7 +83,7 @@ public class ProductoRepositorioImpl implements Repositorio<Producto> {
   public void eliminar(Long id) {
     try (PreparedStatement stmt = getConnection().prepareStatement("delete from productos where id = ?")) {
       stmt.setLong(1, id);
-      stmt.executeQuery();
+      stmt.executeUpdate();
     } catch (Exception e) {
       e.printStackTrace();
     }

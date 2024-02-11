@@ -52,7 +52,9 @@ public class Producto {
 
   @Override
   public String toString() {
-    return id + "\t | " + nombre + "\t | " + precio + "\t | " + fechaRegistro;
+    return id + "\t | " + nombre + "\t | "+ precio + "\t | " + fechaRegistro;
   }
+
+  
   
 }
