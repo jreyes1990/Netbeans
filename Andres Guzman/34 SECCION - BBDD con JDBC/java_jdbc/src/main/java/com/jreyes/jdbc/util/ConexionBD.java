@@ -11,9 +11,9 @@ public class ConexionBD {
   private static Connection connection;
 
   public static Connection getInstance() throws SQLException {
-    if (connection == null) {
+    //if (connection == null) {
       connection = DriverManager.getConnection(url, user, password);
-    }
+    //}
     
     return connection;
   }
