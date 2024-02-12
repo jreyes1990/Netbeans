@@ -32,7 +32,7 @@ public class MainJdbc {
      * ex.printStackTrace();
      * }
      */
-
+    
     System.out.println("\n========== Listar productos ==========");
     Repositorio<Producto> repositorio = new ProductoRepositorioImpl();
     repositorio.listar().forEach(System.out::println);
@@ -50,7 +50,7 @@ public class MainJdbc {
     categoria.setId(3L);
     producto.setCategoria(categoria);
     repositorio.guardar(producto);
-    System.out.println("Producto (" + producto.getNombre() + ") guardado con exito");
+    System.out.println("Producto ("+producto.getNombre()+") guardado con exito");
 
     System.out.println("\n========== Listar nuevamente productos ==========");
     repositorio.listar().forEach(p -> System.out.println(p));
@@ -63,14 +63,14 @@ public class MainJdbc {
     producto.setCategoria(categoria);
 
     repositorio.guardar(producto);
-    System.out.println("Producto (" + producto.getNombre() + ") actualizado con exito");
+    System.out.println("Producto ("+producto.getNombre()+") actualizado con exito");
 
     System.out.println("\n========== Listar nuevamente productos ==========");
     repositorio.listar().forEach(p -> System.out.println(p));
 
     System.out.println("\n========== Eliminar producto por ID ==========");
     repositorio.eliminar(7L);
-    System.out.println("Producto (" + producto.getNombre() + ") eliminado con exito");
+    System.out.println("Producto ("+producto.getNombre()+") eliminado con exito");
 
     System.out.println("\n========== Listar nuevamente productos ==========");
     repositorio.listar().forEach(p -> System.out.println(p));
