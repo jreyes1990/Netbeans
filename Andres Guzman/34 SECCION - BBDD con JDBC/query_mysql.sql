@@ -36,9 +36,13 @@
 -- 	ALTERNANDO TABLAS EN LA BASE DE DATOS 'java_curso'
 	-- AGREGANDO COLUMNA(S)
 	alter table productos add column categoria_id int null after fecha_registro;
+	alter table productos add column sku varchar(10) null after categoria_id;
 
 	-- AGREGANDO INDEX(ES)
 	alter table productos add index idx_productos_categorias (categoria_id asc) visible;	
+
+	-- AGREGANDO INDEX(ES) UNIQUE
+	alter table productos add unique index idx_unique_sku (sku asc) visible;
 
 	-- AGREGANDO FOREIGN KEY(S)
 	alter table productos add constraint fk_productos_categorias foreign key (categoria_id) references categorias (id) on delete no action on update no action;
