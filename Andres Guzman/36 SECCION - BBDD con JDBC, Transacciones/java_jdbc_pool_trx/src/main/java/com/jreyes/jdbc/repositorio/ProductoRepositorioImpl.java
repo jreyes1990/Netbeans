@@ -1,5 +1,6 @@
-package com.jreyes.jdbc.interfaces;
+package com.jreyes.jdbc.repositorio;
 
+import com.jreyes.jdbc.interfaces.Repositorio;
 import com.jreyes.jdbc.modelo.Categoria;
 import com.jreyes.jdbc.modelo.Producto;
 import java.sql.Connection;
