@@ -13,7 +13,14 @@ import java.util.List;
 public class CategoriaRepositorioImpl implements Repositorio<Categoria>{
   private Connection conn;
 
+  public CategoriaRepositorioImpl() {
+  }
+
   public CategoriaRepositorioImpl(Connection conn) {
+    this.conn = conn;
+  }
+
+  public void setConn(Connection conn) {
     this.conn = conn;
   }
   
