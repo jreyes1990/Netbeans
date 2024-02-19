@@ -23,8 +23,8 @@ public class CatalogoServicio implements Servicio {
   public List<Producto> listarProducto() throws SQLException {
     try (Connection conn = ConexionBD.getConnection()) {
       productoRepositorio.setConn(conn);
+      return productoRepositorio.listar();
     } 
-    return productoRepositorio.listar();
   }
 
   @Override

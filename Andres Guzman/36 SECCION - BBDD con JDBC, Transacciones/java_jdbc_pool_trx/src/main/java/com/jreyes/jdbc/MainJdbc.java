@@ -46,28 +46,6 @@ public class MainJdbc {
       repositorioProducto.listar().forEach(p -> System.out.println(p));
       
       conn.commit();
-
-      /*
-      System.out.println("\n========== Actualizar producto ==========");
-      producto.setId(6L);
-      producto.setNombre("Teclado Razer Mecanico");
-      producto.setPrecio(700);
-      categoria.setId(3L);
-      producto.setCategoria(categoria);
-
-      repositorio.guardar(producto);
-      System.out.println("Producto ("+producto.getNombre()+") actualizado con exito");
-
-      System.out.println("\n========== Listar nuevamente productos ==========");
-      repositorioProducto.listar().forEach(p -> System.out.println(p));
-
-      System.out.println("\n========== Eliminar producto por ID ==========");
-      repositorioProducto.eliminar(7L);
-      System.out.println("Producto ("+producto.getNombre()+") eliminado con exito");
-
-      System.out.println("\n========== Listar nuevamente productos ==========");
-      repositorioProducto.listar().forEach(p -> System.out.println(p));
-      */
     }
   }
 }
