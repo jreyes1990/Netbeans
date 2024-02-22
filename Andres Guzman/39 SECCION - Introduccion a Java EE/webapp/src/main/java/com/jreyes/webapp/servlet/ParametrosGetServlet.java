@@ -16,6 +16,7 @@ public class ParametrosGetServlet extends HttpServlet {
     resp.setContentType("text/html");
     PrintWriter out = resp.getWriter();
     String saludo = req.getParameter("saludo");
+    String nombre = req.getParameter("nombre");
     
     out.println("<!DOCTYPE html>");
     out.println("<html lang=\"en\">");
@@ -26,7 +27,23 @@ public class ParametrosGetServlet extends HttpServlet {
     out.println("   </head>");
     out.println("   <body>");
     out.println("     <h1>Hola Mundo</h1>");
-    out.println("     <h2>El saludo enviado es: "+saludo+"</h2>");
+    if (saludo != null && nombre != null) {
+      out.println("     <h2>El saludo enviado es: "+saludo+" "+nombre+"</h2>"); 
+    } else if (saludo != null) {
+      out.println("     <h2>El saludo enviado es: "+saludo+"</h2>"); 
+    } else if (nombre != null) {
+      out.println("     <h2>El saludo enviado es: "+nombre+"</h2>"); 
+    } else {
+      out.println("     <h2>No se han pasado los parametros saludo y nombre</h2>"); 
+    }
+    
+    try {
+      int codigo = Integer.parseInt(req.getParameter("codigo"));
+      out.println("     <h3>El codigo enviado es: "+codigo+"</h3>"); 
+    } catch (NumberFormatException e) {
+      out.println("     <h3>El codigo no se ha enviado, es null</h3>"); 
+    }
+    
     out.println("   </body>");
     out.println("</html>");
     out.close();

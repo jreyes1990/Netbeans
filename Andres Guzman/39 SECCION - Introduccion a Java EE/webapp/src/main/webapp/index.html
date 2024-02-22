@@ -7,6 +7,19 @@
   </head>
   <body>
     <h1>Hola mundo tomcat</h1>
-    <a href="/webapp/parametros/url-get?saludo=Hola Jolberth" target="target">Enviando parametro</a>
+    <ul>
+      <li>
+        <a href="/webapp/parametros/url-get?saludo=Hola" target="target">Enviando parametro 'Saludo'</a>
+      </li>
+      <li>
+        <a href="/webapp/parametros/url-get?saludo=Hola&nombre=Jolberth&codigo=12345" target="target">Enviando parametro 'Saludo', 'Nombre' y 'Codigo'</a>
+      </li>
+      <li>
+        <a href="/webapp/parametros/url-get?nombre=Jolberth" target="target">Enviando parametro 'Nombre'</a>
+      </li>
+      <li>
+        <a href="/webapp/parametros/url-get" target="target">Enviando sin parametros</a>
+      </li>
+    </ul>
   </body>
 </html>
