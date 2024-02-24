@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Hola mundo tomcat</title>
+    <title>Formularios de usuario</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <h1>Hola mundo tomcat</h1>
-    <ul>
-      <li>
-        <a href="/webapp/parametros/url-get?saludo=Hola" target="target">Enviando parametro 'Saludo'</a>
-      </li>
-      <li>
-        <a href="/webapp/parametros/url-get?saludo=Hola&nombre=Jolberth&codigo=12345" target="target">Enviando parametro 'Saludo', 'Nombre' y 'Codigo'</a>
-      </li>
-      <li>
-        <a href="/webapp/parametros/url-get?nombre=Jolberth" target="target">Enviando parametro 'Nombre'</a>
-      </li>
-      <li>
-        <a href="/webapp/parametros/url-get" target="target">Enviando sin parametros</a>
-      </li>
-    </ul>
+    <h3>Formularios de usuario</h3>
+    <form action="/webapp-form/registro" method="post">
+      <div>
+        <label for="username">Usuario</label>
+        <div>
+          <input type="text" name="username" id="username">
+        </div>
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <div>
+          <input type="password" name="password" id="password">
+        </div>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <div>
+          <input type="text" name="email" id="email">
+        </div>
+      </div>
+      <div>
+        <input type="submit" value="Enviar">
+      </div>
+    </form>
   </body>
 </html>
