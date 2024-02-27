@@ -58,46 +58,50 @@ public class FormServlet extends HttpServlet {
       errores.add("Debe seleccionar un idioma");
     }
     
-    try (PrintWriter out = resp.getWriter()) {
-      out.println("<!DOCTYPE html>");
-      out.println("<html lang=\"en\">");
-      out.println("   <head>");
-      out.println("     <meta charset+\"UTF-8\">");
-      out.println("     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-      out.println("     <title>Resultado Form</title>");
-      out.println("   </head>");
-      out.println("   <body>");
-      out.println("     <h1>Resultado Form!</h1>");
-      out.println("     <ul>");
-      if (errores.isEmpty()) {
-      out.println("       <li>Username: "+ username + "</li>");
-      out.println("       <li>Password: "+ password + "</li>");
-      out.println("       <li>Email: "+ email + "</li>");
-      out.println("       <li>Pais: "+ pais +"</li>");
-      out.println("       <li>Lenguajes: ");
-      out.println("         <ul>");
-      Arrays.asList(lenguajes).forEach(lenguaje -> {
-        out.println("         <li>"+ lenguaje +"</li>");
-      });
-      out.println("       <li>Roles: ");
-      out.println("         <ul>");
-      Arrays.asList(roles).forEach(role -> {
-        out.println("         <li>"+ role +"</li>");
-      });
-      out.println("         </ul>");
-      out.println("       </li>");
-      out.println("       <li>Idioma: "+ idioma + "</li>");
-      out.println("       <li>Habilitado: "+ habilitar + "</li>");
-      out.println("       <li>Secreto: "+ secreto + "</li>");
-      } else {
-        errores.forEach(error -> {
-          out.println("   <li>"+ error +"</li>");
+    if (errores.isEmpty()) {
+      try (PrintWriter out = resp.getWriter()) {
+        out.println("<!DOCTYPE html>");
+        out.println("<html lang=\"en\">");
+        out.println("   <head>");
+        out.println("     <meta charset+\"UTF-8\">");
+        out.println("     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
+        out.println("     <title>Resultado Form</title>");
+        out.println("   </head>");
+        out.println("   <body>");
+        out.println("     <h1>Resultado Form!</h1>");
+        out.println("     <ul>");
+        out.println("       <li>Username: "+ username + "</li>");
+        out.println("       <li>Password: "+ password + "</li>");
+        out.println("       <li>Email: "+ email + "</li>");
+        out.println("       <li>Pais: "+ pais +"</li>");
+        out.println("       <li>Lenguajes: ");
+        out.println("         <ul>");
+        Arrays.asList(lenguajes).forEach(lenguaje -> {
+          out.println("         <li>"+ lenguaje +"</li>");
         });
-        out.println("<p><a href=\"/\">Volver</a></p>");
+        out.println("       <li>Roles: ");
+        out.println("         <ul>");
+        Arrays.asList(roles).forEach(role -> {
+          out.println("         <li>"+ role +"</li>");
+        });
+        out.println("         </ul>");
+        out.println("       </li>");
+        out.println("       <li>Idioma: "+ idioma + "</li>");
+        out.println("       <li>Habilitado: "+ habilitar + "</li>");
+        out.println("       <li>Secreto: "+ secreto + "</li>");
+        out.println("     </ul>");
+        out.println("   </body>");
+        out.println("</html>");
       }
-      out.println("     </ul>");
-      out.println("   </body>");
-      out.println("</html>");
+    } else {
+      req.setAttribute("errores", errores);
+      getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
+      /*
+      errores.forEach(error -> {
+        out.println("   <li>"+ error +"</li>");
+      });
+      out.println("<p><a href=\"/\">Volver</a></p>");
+      */
     }
   }
   
