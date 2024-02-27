@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.Map"%>
 <% 
-  List<String> errores = (List<String>) request.getAttribute("errores");
+  Map<String, String> errores = (Map<String, String>) request.getAttribute("errores");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@
     <h3>Formularios de usuario</h3>
     <% if(errores != null && errores.size() > 0) { %>
       <ul>
-        <% for(String error: errores) { %>
+        <% for(String error: errores.values()) { %>
           <li><%= error %></li>
         <% } %>
       </ul>
@@ -25,18 +25,33 @@
         <div>
           <input type="text" name="username" id="username">
         </div>
+        <% 
+          if(errores != null && errores.containsKey("username")) {
+            out.println("<small style='color: red;'>"+ errores.get("username") + "</small>");
+          } 
+        %>
       </div>
       <div>
         <label for="password">Password</label>
         <div>
           <input type="password" name="password" id="password">
         </div>
+        <% 
+          if(errores != null && errores.containsKey("password")) {
+            out.println("<small style='color: red;'>"+ errores.get("password") + "</small>");
+          } 
+        %>
       </div>
       <div>
         <label for="email">Email</label>
         <div>
           <input type="text" name="email" id="email">
         </div>
+        <% 
+          if(errores != null && errores.containsKey("email")) {
+            out.println("<small style='color: red;'>"+ errores.get("email") + "</small>");
+          } 
+        %>
       </div>
       <div>
         <label for="pais">Pais</label>
@@ -52,6 +67,11 @@
             <option value="VE">Venezuela</option>
           </select>
         </div>
+        <% 
+          if(errores != null && errores.containsKey("pais")) {
+            out.println("<small style='color: red;'>"+ errores.get("pais") + "</small>");
+          } 
+        %>
       </div>
       <div>
         <label for="lenguajes">Lenguajes de programacion</label>
@@ -65,6 +85,11 @@
             <option value="react">React</option>
           </select>
         </div>
+        <% 
+          if(errores != null && errores.containsKey("lenguajes")) {
+            out.println("<small style='color: red;'>"+ errores.get("lenguajes") + "</small>");
+          } 
+        %>
       </div>
       <div>
         <label>Roles</label>
@@ -81,6 +106,11 @@
           <label>Moderador</label>
         </div>
       </div>
+        <% 
+          if(errores != null && errores.containsKey("roles")) {
+            out.println("<small style='color: red;'>"+ errores.get("roles") + "</small>");
+          } 
+        %>
       <div>
         <label>Idiomas</label>
         <div>
@@ -96,6 +126,11 @@
           <label>Frances</label>
         </div>
       </div>
+        <% 
+          if(errores != null && errores.containsKey("idioma")) {
+            out.println("<small style='color: red;'>"+ errores.get("idioma") + "</small>");
+          } 
+        %>
       <div>
         <label for="habilitar">Habilitar</label>
         <div>
