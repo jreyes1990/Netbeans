@@ -9,138 +9,154 @@
     <title>Formularios de usuario</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <h3>Formularios de usuario</h3>
-    <% if(errores != null && errores.size() > 0) { %>
-      <ul>
-        <% for(String error: errores.values()) { %>
-          <li><%= error %></li>
-        <% } %>
-      </ul>
-    <% } %>
-    <form action="/webapp-form/registro" method="post">
-      <div>
-        <label for="username">Usuario</label>
-        <div>
-          <input type="text" name="username" id="username">
+    <div class="px-5">
+      <h3>Formularios de usuario</h3>
+      <form action="/webapp-form/registro" method="post" class="form-control">
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <% if(errores != null && errores.size() > 0) { %>
+              <ul class="alert alert-danger">
+                <% for(String error: errores.values()) { %>
+                  <li class="mx-4"><%= error %></li>
+                <% } %>
+              </ul>
+            <% } %>
+          </div>
         </div>
-        <% 
-          if(errores != null && errores.containsKey("username")) {
-            out.println("<small style='color: red;'>"+ errores.get("username") + "</small>");
-          } 
-        %>
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <div>
-          <input type="password" name="password" id="password">
+
+        <div class="row mb-3">
+          <label for="username" class="col-form-label col-sm-2">Usuario</label>
+          <div class="col-md-4">
+            <input type="text" name="username" id="username" class="form-control">
+            <% 
+              if(errores != null && errores.containsKey("username")) {
+                out.println("<span class='badge bg-danger'><class='col-md-4' small style='color: white;'>"+ errores.get("username") + "</small></span>");
+              } 
+            %>
+          </div>
         </div>
-        <% 
-          if(errores != null && errores.containsKey("password")) {
-            out.println("<small style='color: red;'>"+ errores.get("password") + "</small>");
-          } 
-        %>
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <div>
-          <input type="text" name="email" id="email">
+        <div class="row mb-3">
+          <label for="password" class="col-form-label col-sm-2">Password</label>
+          <div class="col-md-4">
+            <input type="password" name="password" id="password" class="form-control">
+            <% 
+              if(errores != null && errores.containsKey("password")) {
+                out.println("<span class='badge bg-danger'><small col-md-4 style='color: white;'>"+ errores.get("password") + "</small></span>");
+              } 
+            %>
+          </div>
         </div>
-        <% 
-          if(errores != null && errores.containsKey("email")) {
-            out.println("<small style='color: red;'>"+ errores.get("email") + "</small>");
-          } 
-        %>
-      </div>
-      <div>
-        <label for="pais">Pais</label>
-        <div>
-          <select name="pais" id="pais">
-            <option value="">-- Seleccionar --</option>
-            <option value="ES">Espania</option>
-            <option value="ME">Mexico</option>
-            <option value="CL" selected>Chile</option>
-            <option value="AR">Argentina</option>
-            <option value="PE">Peru</option>
-            <option value="CO">Colombia</option>
-            <option value="VE">Venezuela</option>
-          </select>
+        <div class="row mb-3">
+          <label for="email" class="col-form-label col-sm-2">Email</label>
+          <div class="col-md-4">
+            <input type="text" name="email" id="email" class="form-control">
+            <% 
+              if(errores != null && errores.containsKey("email")) {
+                out.println("<span class='badge bg-danger'><small col-md-4 style='color: white;'>"+ errores.get("email") + "</small></span>");
+              } 
+            %>
+          </div>
         </div>
-        <% 
-          if(errores != null && errores.containsKey("pais")) {
-            out.println("<small style='color: red;'>"+ errores.get("pais") + "</small>");
-          } 
-        %>
-      </div>
-      <div>
-        <label for="lenguajes">Lenguajes de programacion</label>
-        <div>
-          <select name="lenguajes" id="lenguajes" multiple>
-            <option value="java" selected>Java SE</option>
-            <option value="jakartaee" selected>Jakarta EE</option>
-            <option value="sprint">Sprint Boot</option>
-            <option value="js">JavaScript</option>
-            <option value="angular" selected>Angular</option>
-            <option value="react">React</option>
-          </select>
+        <div class="row mb-3">
+          <label for="pais" class="col-sm-2">Pais</label>
+          <div class="col-md-4">
+            <select name="pais" id="pais" class="form-select">
+              <option value="">-- Seleccionar --</option>
+              <option value="ES">Espania</option>
+              <option value="ME">Mexico</option>
+              <option value="CL" selected>Chile</option>
+              <option value="AR">Argentina</option>
+              <option value="PE">Peru</option>
+              <option value="CO">Colombia</option>
+              <option value="VE">Venezuela</option>
+            </select>
+            <% 
+              if(errores != null && errores.containsKey("pais")) {
+                out.println("<span class='badge bg-danger'><small col-md-4 style='color: white;'>"+ errores.get("pais") + "</small></span>");
+              } 
+            %>
+          </div>
         </div>
-        <% 
-          if(errores != null && errores.containsKey("lenguajes")) {
-            out.println("<small style='color: red;'>"+ errores.get("lenguajes") + "</small>");
-          } 
-        %>
-      </div>
-      <div>
-        <label>Roles</label>
-        <div>
-          <input type="checkbox" name="roles" value="ROLE_ADMIN">
-          <label>Administrador</label>
+        <div class="row mb-3">
+          <label for="lenguajes" class="col-sm-2">Lenguajes de programacion</label>
+          <div class="col-md-4">
+            <select name="lenguajes" id="lenguajes" multiple class="form-select">
+              <option value="java" selected>Java SE</option>
+              <option value="jakartaee" selected>Jakarta EE</option>
+              <option value="sprint">Sprint Boot</option>
+              <option value="js">JavaScript</option>
+              <option value="angular" selected>Angular</option>
+              <option value="react">React</option>
+            </select>
+            <% 
+              if(errores != null && errores.containsKey("lenguajes")) {
+                out.println("<span class='badge bg-danger'><small col-md-4 style='color: white;'>"+ errores.get("lenguajes") + "</small></span>");
+              } 
+            %>
+          </div>
         </div>
-        <div>
-          <input type="checkbox" name="roles" value="ROLE_USER" checked>
-          <label>Usuario</label>
+        <div class="row mb-3">
+          <label class="col-form-label col-sm-2">Roles</label>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input type="checkbox" name="roles" value="ROLE_ADMIN" class="form-check-input">
+              <label class="form-check-label">Administrador</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" name="roles" value="ROLE_USER" checked class="form-check-input">
+              <label class="form-check-label">Usuario</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" name="roles" value="ROLE_MODERATOR" class="form-check-input">
+              <label class="form-check-label">Moderador</label>
+            </div>
+            <% 
+              if(errores != null && errores.containsKey("roles")) {
+                out.println("<span class='badge bg-danger'><small col-md-4 style='color: white;'>"+ errores.get("roles") + "</small></span>");
+              } 
+            %>
+          </div>
         </div>
-        <div>
-          <input type="checkbox" name="roles" value="ROLE_MODERATOR">
-          <label>Moderador</label>
+        <div class="row mb-3">
+          <label class="col-form-label col-sm-2">Idiomas</label>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input type="radio" name="idioma" value="es" checked class="form-check-input">
+              <label class="form-check-label">Espaniol</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" name="idioma" value="en" class="form-check-input">
+              <label class="form-check-label">Ingles</label>
+            </div>
+            <div class="form-check">
+              <input type="radio" name="idioma" value="fr" class="form-check-input">
+              <label class="form-check-label">Frances</label>
+            </div>
+            <% 
+              if(errores != null && errores.containsKey("idioma")) {
+                out.println("<span class='badge bg-danger'><small col-md-4 style='color: white;'>"+ errores.get("idioma") + "</small></span>");
+              } 
+            %>
+          </div>
         </div>
-      </div>
-        <% 
-          if(errores != null && errores.containsKey("roles")) {
-            out.println("<small style='color: red;'>"+ errores.get("roles") + "</small>");
-          } 
-        %>
-      <div>
-        <label>Idiomas</label>
-        <div>
-          <input type="radio" name="idioma" value="es" checked>
-          <label>Espaniol</label>
+        <div class="row mb-3">
+          <label for="habilitar" class="col-form-label col-sm-2">Habilitar</label>
+          <div class="col-md-4">
+            <div class="form-check">
+              <input type="checkbox" name="habilitar" id="habilitar" checked class="form-check-input">
+            </div>
+          </div>
         </div>
-        <div>
-          <input type="radio" name="idioma" value="en">
-          <label>Ingles</label>
+        <input type="hidden" name="secreto" value="12345">
+        <div class="row mb-3">
+          <div class="col-md-4">
+            <input type="submit" value="Enviar" class="btn btn-primary">
+          </div>
         </div>
-        <div>
-          <input type="radio" name="idioma" value="fr">
-          <label>Frances</label>
-        </div>
-      </div>
-        <% 
-          if(errores != null && errores.containsKey("idioma")) {
-            out.println("<small style='color: red;'>"+ errores.get("idioma") + "</small>");
-          } 
-        %>
-      <div>
-        <label for="habilitar">Habilitar</label>
-        <div>
-          <input type="checkbox" name="habilitar" id="habilitar" checked>
-        </div>
-      </div>
-      <input type="hidden" name="secreto" value="12345">
-      <div>
-        <input type="submit" value="Enviar">
-      </div>
-    </form>
+      </form>
+    </div>  
   </body>
 </html>
